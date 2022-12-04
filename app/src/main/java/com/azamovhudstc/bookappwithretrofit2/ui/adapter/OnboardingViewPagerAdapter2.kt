@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.azamovhudstc.bookappwithretrofit2.R
-import com.azamovhudstc.bookappwithretrofit2.ui.fragment.OnboardingFragment
+import com.azamovhudstc.bookappwithretrofit2.ui.fragment.auth.OnboardingFragment
 
 
 class OnboardingViewPagerAdapter2(

@@ -15,5 +15,6 @@
     <color name="colorUnselect">#9D9FA1</color>
     <color name="white">#FFFFFFFF</color>
     <color name="needColor">#66d7ef</color>
+    <color name="like_color">#F44336</color>
 
 </resources>

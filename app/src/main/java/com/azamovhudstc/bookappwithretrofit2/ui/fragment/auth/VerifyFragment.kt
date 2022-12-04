@@ -1,4 +1,4 @@
-package com.azamovhudstc.bookappwithretrofit2.ui.fragment
+package com.azamovhudstc.bookappwithretrofit2.ui.fragment.auth
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -14,7 +14,7 @@ import com.azamovhudstc.bookappwithretrofit2.model.local.AppReference
 import com.azamovhudstc.bookappwithretrofit2.retrofit2.request.AuthRequest
 import com.azamovhudstc.bookappwithretrofit2.utils.showToast
 import com.azamovhudstc.bookappwithretrofit2.utils.state
-import com.azamovhudstc.bookappwithretrofit2.viewmodel.VerifyViewModel
+import com.azamovhudstc.bookappwithretrofit2.viewmodel.viewmodelImpl.VerifyViewModel
 import kotlinx.android.synthetic.main.fragment_veriy.*
 import java.io.Serializable
 import java.text.DecimalFormat

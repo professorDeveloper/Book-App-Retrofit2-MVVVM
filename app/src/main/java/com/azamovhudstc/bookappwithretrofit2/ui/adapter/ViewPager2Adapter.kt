@@ -3,8 +3,9 @@ package com.azamovhudstc.bookappwithretrofit2.ui.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.azamovhudstc.bookappwithretrofit2.ui.fragment.BooksFragment
-import com.azamovhudstc.bookappwithretrofit2.ui.fragment.FavouritesFragment
+import com.azamovhudstc.bookappwithretrofit2.ui.fragment.books.BooksFragment
+import com.azamovhudstc.bookappwithretrofit2.ui.fragment.books.FavouritesFragment
+import com.azamovhudstc.bookappwithretrofit2.ui.fragment.books.SocialBooksFragment
 
 class ViewPager2Adapter(fragmentActivity: FragmentActivity):FragmentStateAdapter(fragmentActivity) {
     override fun getItemCount(): Int {
@@ -16,9 +17,10 @@ class ViewPager2Adapter(fragmentActivity: FragmentActivity):FragmentStateAdapter
             0->{
                 BooksFragment()
             }
-            else ->{
+            1 ->{
                 FavouritesFragment()
             }
+            else -> SocialBooksFragment()
 
         }
     }

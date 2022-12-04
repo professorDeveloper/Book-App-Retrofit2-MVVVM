@@ -1,11 +1,11 @@
-package com.azamovhudstc.bookappwithretrofit2.ui.fragment
+package com.azamovhudstc.bookappwithretrofit2.ui.fragment.books
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -13,19 +13,19 @@ import com.azamovhudstc.bookappwithretrofit2.R
 import com.azamovhudstc.bookappwithretrofit2.retrofit2.request.AddBookRequest
 import com.azamovhudstc.bookappwithretrofit2.utils.showToast
 import com.azamovhudstc.bookappwithretrofit2.viewmodel.AddBookViewModel
-import com.azamovhudstc.bookappwithretrofit2.viewmodel.BooksScreenViewModel
 import com.azamovhudstc.bookappwithretrofit2.viewmodel.viewmodelImpl.AddBookViewModelImp
-import com.azamovhudstc.bookappwithretrofit2.viewmodel.viewmodelImpl.BookScreenVewModelImp
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_add_book.*
-import kotlinx.android.synthetic.main.fragment_books.*
 
 
 class AddBookFragment : Fragment(R.layout.fragment_add_book) {
     private val viewModel: AddBookViewModel by viewModels<AddBookViewModelImp>()
     private var errorMessage: String? = null
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requireActivity().window.setStatusBarColor(ContextCompat.getColor(requireActivity(), R.color.color_blue))
+
         viewModel.successBackLiveData.observe(this, addBookSuccessObserver)
         viewModel.progressStatusLiveData.observe(this, progressObserver)
         viewModel.errorLiveData.observe(this, errorObserver)
@@ -47,7 +47,7 @@ class AddBookFragment : Fragment(R.layout.fragment_add_book) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        back_add?.setOnClickListener {
+        toolbar2_.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
         addBook.setOnClickListener {

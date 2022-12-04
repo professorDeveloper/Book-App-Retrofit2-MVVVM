@@ -1,4 +1,4 @@
-package com.azamovhudstc.bookappwithretrofit2.viewmodel
+package com.azamovhudstc.bookappwithretrofit2.viewmodel.viewmodelImpl
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

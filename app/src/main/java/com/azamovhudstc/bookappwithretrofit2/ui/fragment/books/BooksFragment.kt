@@ -1,7 +1,9 @@
-package com.azamovhudstc.bookappwithretrofit2.ui.fragment
+package com.azamovhudstc.bookappwithretrofit2.ui.fragment.books
 
 import android.content.DialogInterface
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,26 +17,33 @@ import com.azamovhudstc.bookappwithretrofit2.R
 import com.azamovhudstc.bookappwithretrofit2.retrofit2.response.BooksResponse
 import com.azamovhudstc.bookappwithretrofit2.retrofit2.response.BooksResponseItem
 import com.azamovhudstc.bookappwithretrofit2.ui.adapter.BooksAdapter
+import com.azamovhudstc.bookappwithretrofit2.utils.myAddTextChangedListener
 import com.azamovhudstc.bookappwithretrofit2.utils.showToast
 import com.azamovhudstc.bookappwithretrofit2.viewmodel.BooksScreenViewModel
 import com.azamovhudstc.bookappwithretrofit2.viewmodel.viewmodelImpl.BookScreenVewModelImp
+import kotlinx.android.synthetic.main.fragment_add_book.view.*
 import kotlinx.android.synthetic.main.fragment_books.*
 import kotlinx.android.synthetic.main.fragment_books.view.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class BooksFragment : Fragment(R.layout.fragment_books),
     BooksAdapter.ContactItemCallBack.SetLongClickListener {
     lateinit var root: View
+    lateinit var handler: Handler
     lateinit var list: ArrayList<BooksResponseItem>
     private val viewModel: BooksScreenViewModel by viewModels<BookScreenVewModelImp>()
     private val adapter by lazy { BooksAdapter(this) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         viewModel.deleteBookLiveData.observe(this, deleteBookObserver)
         viewModel.getBooksLiveData.observe(this, getBooksObserver)
         viewModel.progressLiveData.observe(this, progressObserver)
         viewModel.addBookLiveData.observe(this, addObserver)
         viewModel.editBookLiveData.observe(this, editBookObserver)
-        viewModel.showBookLiveData.observe(this,showBookObserver)
+        viewModel.showBookLiveData.observe(this, showBookObserver)
+        viewModel.noInternet.observe(this, noInternetObserver)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,9 +54,19 @@ class BooksFragment : Fragment(R.layout.fragment_books),
         buttonAdd.setOnClickListener {
             viewModel.addBook()
         }
+        handler = Handler(Looper.getMainLooper())
+        search_edit_text.myAddTextChangedListener {
+            val query = it.toString().lowercase()
+            handler.postDelayed({
+                query?.let {
+                    filter(query)
+                }
+            }, 1000)
+
+        }
     }
 
-    private val showBookObserver= Observer<BooksResponseItem> {
+    private val showBookObserver = Observer<BooksResponseItem> {
         var bundle = Bundle()
         bundle.putSerializable("data", it)
         findNavController().navigate(R.id.showBookFragment, bundle)
@@ -74,6 +93,10 @@ class BooksFragment : Fragment(R.layout.fragment_books),
     private val deleteBookObserver = Observer<String> {
         showToast(it, Toast.LENGTH_SHORT)
     }
+    private val noInternetObserver = Observer<Boolean> {
+        noInternet(root, it)
+    }
+
 
     override fun onResume() {
         viewModel.getBooks()
@@ -113,6 +136,18 @@ class BooksFragment : Fragment(R.layout.fragment_books),
         }
     }
 
+    private fun noInternet(view: View, boolean: Boolean) {
+        if (boolean) {
+            view.books_rv.visibility = View.GONE
+            view.noInternet.visibility = View.VISIBLE
+        } else {
+            view.books_rv.visibility = View.VISIBLE
+            view.noInternet.visibility = View.GONE
+
+        }
+
+    }
+
     override fun showClick(contact: BooksResponseItem) {
         viewModel.showBook(contact)
     }
@@ -120,4 +155,36 @@ class BooksFragment : Fragment(R.layout.fragment_books),
     override fun editItemClick(contact: BooksResponseItem) {
         viewModel.editBook(contact)
     }
+
+    override fun likedClick(contact: BooksResponseItem) {
+        viewModel.likeBook(contact)
+    }
+
+    private fun filter(text: String) {
+        // creating a new array list to filter our data.
+        val filteredlist = ArrayList<BooksResponseItem>()
+
+        // running a for loop to compare elements.
+        for (item in list) {
+            // checking if the entered string matched with any item of our recycler view.
+            if (item.title.toLowerCase().contains(text.lowercase(Locale.getDefault()))) {
+                // if the item is matched we are
+                // adding it to our filtered list.
+                filteredlist.add(item)
+            }
+        }
+        if (filteredlist.isEmpty()) {
+            // if no item is added in filtered list we are
+            placeHolder(root,filteredlist)
+            // displaying a toast message as no data found.
+        } else {
+
+            // at last we are passing that filtered
+            // list to our adapter class.
+            adapter.submitList(filteredlist)
+            placeHolder(root,filteredlist)
+
+        }
+    }
+
 }

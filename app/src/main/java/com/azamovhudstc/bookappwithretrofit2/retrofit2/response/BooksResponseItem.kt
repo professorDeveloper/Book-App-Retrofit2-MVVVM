@@ -10,7 +10,7 @@ data class BooksResponseItem(
     @SerializedName("description")
     val description: String,
     @SerializedName("fav")
-    val fav: Boolean,
+    var fav: Boolean,
     @SerializedName("id")
     val id: Int,
     @SerializedName("pageCount")

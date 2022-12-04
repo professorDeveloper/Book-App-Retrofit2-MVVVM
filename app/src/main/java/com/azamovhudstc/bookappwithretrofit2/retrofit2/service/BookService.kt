@@ -1,15 +1,10 @@
 package com.azamovhudstc.bookappwithretrofit2.retrofit2.service
 
-import com.azamovhudstc.bookappwithretrofit2.retrofit2.request.AddBookRequest
-import com.azamovhudstc.bookappwithretrofit2.retrofit2.request.DeleteBookRequest
-import com.azamovhudstc.bookappwithretrofit2.retrofit2.request.EditBookRequest
-import com.azamovhudstc.bookappwithretrofit2.retrofit2.request.FavouriteBookRequest
-import com.azamovhudstc.bookappwithretrofit2.retrofit2.response.AddBookResponse
-import com.azamovhudstc.bookappwithretrofit2.retrofit2.response.BooksResponse
-import com.azamovhudstc.bookappwithretrofit2.retrofit2.response.BooksResponseItem
-import com.azamovhudstc.bookappwithretrofit2.retrofit2.response.ErrorResponse
+import com.azamovhudstc.bookappwithretrofit2.retrofit2.request.*
+import com.azamovhudstc.bookappwithretrofit2.retrofit2.response.*
 import okhttp3.internal.http.hasBody
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.http.*
 
 interface BookService {
@@ -22,6 +17,9 @@ interface BookService {
         @Header("Authorization") token: String,
         @Body addBookRequest: AddBookRequest
     ): Call<AddBookResponse>
+
+    @GET("/books/users")
+    fun getAllUsers(@Header("Authorization") token: String): Call<GetSocialUserResponse>
 
     @PUT("/book")
     fun editBook(
@@ -40,4 +38,16 @@ interface BookService {
         @Header("Authorization") token: String,
         @Body favouriteBookRequest: FavouriteBookRequest
     ): Call<ErrorResponse>
+
+    @GET("books/{userId}")
+    fun getBooksByUserId(
+        @Header("Authorization") token: String,
+        @Path("userId") userId: Int
+    ): Call<GetUserBooksResponse>
+
+    @POST("book/rate")
+    fun rate(
+        @Header("Authorization") token: String, @Body data: RateBookRequest
+    ): Call<ErrorResponse>
+
 }

@@ -3,13 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/home"
+        android:enabled="true"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="Kitoblar"
-
-        app:cnb_iconColor="#03A9F4"/>
-    <item
+        android:title="Shaxsiy Kitoblar"
+/>    <item
         android:id="@+id/favourite"
         android:icon="@drawable/ic_baseline_favorite_24"
-        android:title="Yoqtirganlar"
-        app:cnb_iconColor="#FFC107"/>
-</menu>
+        android:title="Yoqtirganlar" />
+    <item
+        android:id="@+id/users"
+        android:icon="@drawable/books"
+        android:title="Barcha Userlar"
+/></menu>

@@ -4,40 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.HomeFragment">
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/actionBar"
-        android:background="@color/clicked"
-        android:layout_width="match_parent"
-        android:layout_height="?android:actionBarSize"
-        app:layout_constraintTop_toTopOf="parent">
+    tools:context=".ui.fragment.books.HomeFragment">
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:id="@+id/actionBar"-->
+<!--        android:background="@color/clicked"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?android:actionBarSize"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--        <androidx.appcompat.widget.LinearLayoutCompat-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/drawerOpen"
-                android:layout_margin="8dp"
-                android:background="?android:selectableItemBackgroundBorderless"
-                android:padding="8dp"
-                android:tint="@android:color/white"
-                android:src="@drawable/ic_home" />
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:id="@+id/drawerOpen"-->
+<!--                android:layout_margin="8dp"-->
+<!--                android:background="?android:selectableItemBackgroundBorderless"-->
+<!--                android:padding="8dp"-->
+<!--                android:tint="@android:color/white"-->
+<!--                android:src="@drawable/ic_home" />-->
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:gravity="left|center"
-                android:text="Books"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
+<!--            <TextView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:gravity="left|center"-->
+<!--                android:text="Books"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textSize="18sp" />-->
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </com.google.android.material.appbar.AppBarLayout>
+<!--        </androidx.appcompat.widget.LinearLayoutCompat>-->
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/containerv"
@@ -48,19 +48,16 @@
         app:layout_constraintBottom_toTopOf="@+id/bottom_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/actionBar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_menu"
+        android:layout_marginBottom="5dp"
+        app:labelVisibilityMode="selected"
         style="@style/TextStyleBNV"
-        app:layout_constraintTop_toBottomOf="@id/containerv"
-        android:layout_marginVertical="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="false"
-        app:cnb_iconSize="28dp"
-        app:cnb_menuResource="@menu/bottom_naw"
-        app:cnb_orientationMode="horizontal"
+        app:menu="@menu/bottom_naw"
         app:itemTextAppearanceActive="@dimen/design_bottom_navigation_active_text_size"
         app:itemTextAppearanceInactive="@dimen/design_bottom_navigation_text_size"
         app:layout_constraintBottom_toBottomOf="parent"

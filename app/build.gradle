@@ -59,5 +59,8 @@ dependencies {
     implementation 'com.github.pdrozz:pinview:1.0.2'//PinView
     debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
     releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
+    implementation 'com.github.st235:expandablebottombar:1.5.1'
+    implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.9'
+
 
 }

@@ -1,26 +1,20 @@
-package com.azamovhudstc.bookappwithretrofit2.ui.fragment
+package com.azamovhudstc.bookappwithretrofit2.ui.fragment.books
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.bookappwithretrofit2.R
-import com.azamovhudstc.bookappwithretrofit2.retrofit2.request.AddBookRequest
 import com.azamovhudstc.bookappwithretrofit2.retrofit2.request.EditBookRequest
 import com.azamovhudstc.bookappwithretrofit2.retrofit2.response.BooksResponseItem
 import com.azamovhudstc.bookappwithretrofit2.utils.showToast
-import com.azamovhudstc.bookappwithretrofit2.viewmodel.BooksScreenViewModel
 import com.azamovhudstc.bookappwithretrofit2.viewmodel.EditBookScreenViewModel
-import com.azamovhudstc.bookappwithretrofit2.viewmodel.viewmodelImpl.BookScreenVewModelImp
 import com.azamovhudstc.bookappwithretrofit2.viewmodel.viewmodelImpl.EditBookScreenViewModelImp
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.fragment_add_book.*
-import kotlinx.android.synthetic.main.fragment_books.*
 import kotlinx.android.synthetic.main.fragment_edit.*
 
 
@@ -31,6 +25,13 @@ class EditFragment : Fragment(R.layout.fragment_edit) {
         viewModel.progressLiveData.observe(this, progressObserver)
         viewModel.errorLiveData.observe(this, errorObserver)
         viewModel.successBackLiveData.observe(this, successBackObserver)
+        requireActivity().window.setStatusBarColor(
+            ContextCompat.getColor(
+                requireActivity(),
+                R.color.color_blue
+            )
+        )
+
     }
 
     private val successBackObserver = Observer<Unit> {
@@ -49,6 +50,9 @@ class EditFragment : Fragment(R.layout.fragment_edit) {
         super.onViewCreated(view, savedInstanceState)
         val serializable = arguments?.getSerializable("data") as BooksResponseItem
         editBookDes.setText(serializable.description)
+        toolbar2_edit.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
         editBookAuthor.setText(serializable.author)
         editBookName.setText(serializable.title)
         editBookPage.setText(serializable.pageCount.toString())

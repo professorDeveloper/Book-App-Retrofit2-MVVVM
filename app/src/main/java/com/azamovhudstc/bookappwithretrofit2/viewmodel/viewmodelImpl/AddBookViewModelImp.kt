@@ -1,7 +1,6 @@
 package com.azamovhudstc.bookappwithretrofit2.viewmodel.viewmodelImpl
 
 import android.util.Log
-import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.azamovhudstc.bookappwithretrofit2.model.local.AppReference
@@ -20,7 +19,7 @@ class AddBookViewModelImp : AddBookViewModel, ViewModel() {
     override val successBackLiveData: MutableLiveData<Unit> = MutableLiveData()
     override val errorLiveData: MutableLiveData<String> = MutableLiveData()
     override val progressStatusLiveData: MutableLiveData<Boolean> = MutableLiveData()
-    private val authApi = ApiClient.retrofit.create(BookService::class.java)
+    private val bookApi = ApiClient.retrofit.create(BookService::class.java)
 
     override fun successBack() {
         successBackLiveData.value = Unit
@@ -29,7 +28,7 @@ class AddBookViewModelImp : AddBookViewModel, ViewModel() {
     override fun addBook(bookRequest: AddBookRequest) {
         progressStatusLiveData.value = true
         val token = AppReference.getInstance().token
-        authApi.addBook("Bearer $token", bookRequest).enqueue(object : Callback<AddBookResponse> {
+        bookApi.addBook("Bearer $token", bookRequest).enqueue(object : Callback<AddBookResponse> {
             override fun onResponse(
                 call: Call<AddBookResponse>,
                 response: Response<AddBookResponse>

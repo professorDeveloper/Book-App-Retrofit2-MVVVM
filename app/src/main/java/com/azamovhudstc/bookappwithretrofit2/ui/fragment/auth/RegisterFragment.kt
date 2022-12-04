@@ -1,4 +1,4 @@
-package com.azamovhudstc.bookappwithretrofit2.ui.fragment
+package com.azamovhudstc.bookappwithretrofit2.ui.fragment.auth
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +12,7 @@ import com.azamovhudstc.bookappwithretrofit2.retrofit2.request.AuthRequest
 import com.azamovhudstc.bookappwithretrofit2.utils.myAddTextChangedListener
 import com.azamovhudstc.bookappwithretrofit2.utils.showToast
 import com.azamovhudstc.bookappwithretrofit2.utils.state
-import com.azamovhudstc.bookappwithretrofit2.viewmodel.RegisterViewModel
+import com.azamovhudstc.bookappwithretrofit2.viewmodel.viewmodelImpl.RegisterViewModel
 import kotlinx.android.synthetic.main.fragment_register.*
 
 

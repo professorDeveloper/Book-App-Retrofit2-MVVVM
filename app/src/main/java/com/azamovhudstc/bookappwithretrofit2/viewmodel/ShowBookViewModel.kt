@@ -5,7 +5,10 @@ import com.azamovhudstc.bookappwithretrofit2.retrofit2.response.BooksResponseIte
 
 interface ShowBookViewModel {
     val backLiveData:MutableLiveData<Unit>
+    val isFavouriteLiveData:MutableLiveData<String>
     val showBookLiveData:MutableLiveData<BooksResponseItem>
     fun back()
     fun showBook(booksResponseItem: BooksResponseItem)
+    fun likeBook(booksResponseItem: BooksResponseItem)
+
 }

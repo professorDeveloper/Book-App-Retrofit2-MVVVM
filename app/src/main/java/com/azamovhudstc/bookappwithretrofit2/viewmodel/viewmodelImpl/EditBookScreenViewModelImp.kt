@@ -1,7 +1,6 @@
 package com.azamovhudstc.bookappwithretrofit2.viewmodel.viewmodelImpl
 
 import android.util.Log
-import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.azamovhudstc.bookappwithretrofit2.model.local.AppReference
@@ -20,7 +19,7 @@ class EditBookScreenViewModelImp : EditBookScreenViewModel, ViewModel() {
     override val progressLiveData: MutableLiveData<Boolean> = MutableLiveData()
     override val successBackLiveData: MutableLiveData<Unit> = MutableLiveData()
     override val errorLiveData: MutableLiveData<String> = MutableLiveData()
-    private val authApi = ApiClient.retrofit.create(BookService::class.java)
+    private val bookApi = ApiClient.retrofit.create(BookService::class.java)
 
     override fun successBack() {
         successBackLiveData.value = Unit
@@ -29,7 +28,7 @@ class EditBookScreenViewModelImp : EditBookScreenViewModel, ViewModel() {
     override fun editBook(editBookRequest: EditBookRequest) {
         progressLiveData.value=true
         val token = AppReference.getInstance().token
-        authApi.editBook("Bearer $token", editBookRequest).enqueue(object : Callback<BooksResponseItem> {
+        bookApi.editBook("Bearer $token", editBookRequest).enqueue(object : Callback<BooksResponseItem> {
             override fun onResponse(call: Call<BooksResponseItem>, response: Response<BooksResponseItem>) {
                 if (response.isSuccessful){
                     progressLiveData.value=false

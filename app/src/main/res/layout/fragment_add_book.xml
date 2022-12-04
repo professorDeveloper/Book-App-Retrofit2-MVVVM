@@ -11,8 +11,12 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar2"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_ios_24"
+            android:id="@+id/toolbar2_"
             android:layout_width="match_parent"
+            app:title="Add Book"
+            app:titleTextColor="@color/white"
+            android:elevation="5dp"
             android:layout_height="?actionBarSize"
             android:background="@color/color_blue"
             android:minHeight="?attr/actionBarSize"
@@ -21,34 +25,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/back_add"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginStart="20dp"
-            android:src="@drawable/ic_baseline_arrow_back_ios_24"
-            app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/toolbar2"
-            app:tint="@color/white" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:text="Add Book"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/back_add"
-            app:layout_constraintStart_toEndOf="@+id/back_add"
-            app:layout_constraintTop_toTopOf="@id/back_add" />
-
 
         <EditText
             android:id="@+id/addBookName"
+            android:imeOptions="actionNext"
             android:layout_width="350dp"
             android:textStyle="bold"
             android:layout_height="51dp"
@@ -61,13 +41,15 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar2_" />
 
         <EditText
 
             android:textStyle="bold"
             android:id="@+id/addBookAuthor"
             android:layout_width="350dp"
+            android:imeOptions="actionNext"
+
             android:layout_height="51dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/bg_ed"
@@ -87,6 +69,7 @@
             android:layout_height="212dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/bg_ed"
+            android:imeOptions="actionNext"
             android:gravity="start"
             android:textStyle="bold"
             android:hint="About Book"
@@ -106,6 +89,7 @@
             android:background="@drawable/bg_ed"
             android:inputType="number"
             android:hint="Book page"
+            android:imeOptions="actionDone"
 
             android:maxLines="1"
             android:paddingStart="20dp"
@@ -114,7 +98,8 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addBookDes" />
+            app:layout_constraintTop_toBottomOf="@+id/addBookDes"
+            />
         <androidx.core.widget.ContentLoadingProgressBar
             android:id="@+id/addBookProgress"
             style="?android:attr/progressBarStyleLarge"

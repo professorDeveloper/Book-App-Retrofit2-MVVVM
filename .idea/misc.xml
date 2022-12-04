@@ -3,7 +3,32 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/drawable-v24/ic_baseline_arrow_back_ios_24.xml" value="0.233" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/drawable-v24/ic_baseline_keyboard_voice_24.xml" value="0.233" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/drawable-v24/ic_search.xml" value="0.233" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/drawable-v24/like_un.xml" value="0.233" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.233" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/drawable/ic_baseline_favorite_border_24.xml" value="0.233" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/drawable/ic_baseline_thumb_down_24.xml" value="0.233" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/drawable/like.xml" value="0.233" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/drawable/rounded_dialog.xml" value="0.233" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/activity_main.xml" value="0.2911458333333333" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/books_item.xml" value="0.2911458333333333" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/books_item_byuser.xml" value="0.2879999900124293" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/fragment_add_book.xml" value="0.2911458333333333" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/fragment_books.xml" value="0.2911458333333333" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/fragment_chooser.xml" value="0.2911458333333333" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/fragment_edit.xml" value="0.2911458333333333" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/fragment_favourites.xml" value="0.2911458333333333" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/fragment_home.xml" value="0.21818181061547676" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/fragment_scrolling.xml" value="0.2911458333333333" />
         <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/fragment_show_book.xml" value="0.2879999900124293" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/fragment_show_user_book.xml" value="0.2879999900124293" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/fragment_social_books.xml" value="0.16666666666666666" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/fragment_user_books.xml" value="0.2911458333333333" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/item_user.xml" value="0.2911458333333333" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/layout/tab_item.xml" value="0.2911458333333333" />
+        <entry key="..\:/BookAppWithRetrofit2/app/src/main/res/menu/bottom_naw.xml" value="0.2911458333333333" />
       </map>
     </option>
   </component>

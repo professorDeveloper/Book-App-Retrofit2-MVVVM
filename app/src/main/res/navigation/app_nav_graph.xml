@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.SplashFragment"
+        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.auth.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/introFragment"
-        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.IntroFragment"
+        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.auth.IntroFragment"
         android:label="fragment_intro"
         tools:layout="@layout/fragment_intro" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.LoginFragment"
+        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.auth.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.RegisterFragment"
+        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.auth.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/veriyFragment"
-        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.VerifyFragment"
+        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.auth.VerifyFragment"
         android:label="fragment_veriy"
         tools:layout="@layout/fragment_veriy" >
         <action
@@ -58,16 +58,14 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.HomeFragment"
+        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.books.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_addBookFragment"
-            app:destination="@id/addBookFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/addBookFragment"
-        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.AddBookFragment"
+        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.books.AddBookFragment"
         android:label="fragment_add_book"
         tools:layout="@layout/fragment_add_book" >
         <action
@@ -76,11 +74,35 @@
     </fragment>
     <fragment
         android:id="@+id/editFragment"
-        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.EditFragment"
-        android:label="EditFragment" />
+        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.books.EditFragment"
+        android:label="EditFragment" >
+        <action
+            android:id="@+id/action_editFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/showBookFragment"
-        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.ShowBookFragment"
-        android:label="fragment_show_book"
-        tools:layout="@layout/fragment_show_book" />
+        android:id="@+id/userBooksFragment"
+        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.books.UserBooksFragment"
+        android:label="fragment_user_books"
+        tools:layout="@layout/fragment_user_books" />
+    <fragment
+        android:id="@+id/socialBooksFragment"
+        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.books.SocialBooksFragment"
+        android:label="fragment_social_books"
+        tools:layout="@layout/fragment_social_books" >
+        <action
+            android:id="@+id/action_socialBooksFragment_to_userBooksFragment"
+            app:destination="@id/userBooksFragment" />
+    </fragment>
+        <fragment
+            android:id="@+id/showBookFragment"
+            android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.books.ShowBookFragment"
+            android:label="fragment_show_book"
+            tools:layout="@layout/fragment_show_book">
+        </fragment>
+    <fragment
+        android:id="@+id/showUserBookFragment3"
+        android:name="com.azamovhudstc.bookappwithretrofit2.ui.fragment.books.ShowUserBookFragment"
+        android:label="fragment_show_user_book"
+        tools:layout="@layout/fragment_show_user_book" />
 </navigation>

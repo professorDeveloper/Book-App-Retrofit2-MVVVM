@@ -1,4 +1,4 @@
-package com.azamovhudstc.bookappwithretrofit2.ui.fragment
+package com.azamovhudstc.bookappwithretrofit2.ui.fragment.auth
 
 import android.os.Bundle
 import android.os.Handler

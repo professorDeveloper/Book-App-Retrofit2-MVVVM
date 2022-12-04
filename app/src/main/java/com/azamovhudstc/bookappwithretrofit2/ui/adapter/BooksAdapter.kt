@@ -26,16 +26,29 @@ class BooksAdapter(var setLongClickListener: ContactItemCallBack.SetLongClickLis
                 Log.d("!@#", "edit: asdasdasdasdasd")
             }
             itemView.name.text = contact.title
-            itemView.author.text=contact.author
+            itemView.author.text = contact.author
             itemView.delete.setOnClickListener {
                 setLongClickListener.deleteClick(contact)
                 Log.d("!@#", "delete: asdasdasdasdasd")
             }
-            itemView.setOnClickListener {
-             setLongClickListener.showClick(contact)
+
+
+
+            if (contact.fav) {
+
+                itemView.like.setImageResource(R.drawable.ic_baseline_favorite_24)
+            } else {
+                itemView.like.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+
+
             }
+            itemView.like.setOnClickListener {
 
-
+                setLongClickListener.likedClick(contact)
+            }
+            itemView.setOnClickListener {
+                setLongClickListener.showClick(contact)
+            }
         }
     }
 
@@ -67,6 +80,7 @@ class BooksAdapter(var setLongClickListener: ContactItemCallBack.SetLongClickLis
             fun deleteClick(contact: BooksResponseItem)
             fun showClick(contact: BooksResponseItem)
             fun editItemClick(contact: BooksResponseItem)
+            fun likedClick(contact: BooksResponseItem)
         }
 
     }

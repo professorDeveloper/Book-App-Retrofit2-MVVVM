@@ -9,13 +9,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ApiClient {
 
 
-    private val myClient = OkHttpClient.Builder()
-        .addInterceptor(ChuckInterceptor(App.instance))
-        .build()
+
 
     val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl("http://143.198.48.222:82")
-        .client(myClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 }

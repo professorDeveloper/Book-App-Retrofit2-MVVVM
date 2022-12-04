@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="110dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/book_item_img"
+            android:src="@drawable/img"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="16dp" />
 
@@ -96,7 +96,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
-            android:id="@+id/save"
+            android:id="@+id/like"
             android:background="?selectableItemBackgroundBorderless"
             android:elevation="22dp"
             android:layout_width="25dp"
