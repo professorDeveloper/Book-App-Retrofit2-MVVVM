@@ -10,11 +10,11 @@ data class GetUserBooksResponseItem(
     val disLikeCount: Int,
     val fav: Boolean,
     val id: Int,
-    val isLike: Boolean?,
+    val isLike: Boolean,
     val likeCount: Int,
     val pageCount: Int,
     val title: String
-): Serializable {
+) : Serializable {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

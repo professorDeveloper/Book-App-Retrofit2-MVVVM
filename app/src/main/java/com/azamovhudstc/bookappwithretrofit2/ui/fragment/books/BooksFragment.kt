@@ -12,8 +12,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.azamovhudstc.bookappwithretrofit2.R
+import com.azamovhudstc.bookappwithretrofit2.model.local.AppReference
 import com.azamovhudstc.bookappwithretrofit2.retrofit2.response.BooksResponse
 import com.azamovhudstc.bookappwithretrofit2.retrofit2.response.BooksResponseItem
 import com.azamovhudstc.bookappwithretrofit2.ui.adapter.BooksAdapter
@@ -51,6 +53,18 @@ class BooksFragment : Fragment(R.layout.fragment_books),
         root = view
         books_rv.adapter = adapter
         viewModel.getBooks()
+        logOut.setOnClickListener {
+            findNavController().navigate(
+                R.id.loginFragment,
+                null,
+                NavOptions.Builder().setPopUpTo(R.id.homeFragment, true).build()
+            )
+            AppReference.getInstance().startScreen = "INTRO"
+            AppReference.getInstance().token=""
+            AppReference.getInstance().verifyToken=""
+            AppReference.getInstance().name=""
+            AppReference.getInstance().password=""
+        }
         buttonAdd.setOnClickListener {
             viewModel.addBook()
         }

@@ -5,16 +5,18 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.books.BooksFragment">
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/search_card_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="15dp"
         android:background="#C9C8CD"
         app:cardCornerRadius="10dp"
         app:cardElevation="3dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/logOut"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -72,6 +74,18 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <ImageView
+        android:id="@+id/logOut"
+        android:layout_width="30dp"
+        android:scaleType="centerCrop"
+        android:background="?selectableItemBackgroundBorderless"
+        android:layout_marginEnd="10dp"
+        app:tint="@color/color_blue"
+        android:layout_height="30dp"
+        android:src="@drawable/logout"
+        app:layout_constraintBottom_toBottomOf="@+id/search_card_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/search_card_view" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/books_rv"
@@ -81,7 +95,7 @@
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/logOut"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_card_view"
